@@ -1,0 +1,6 @@
+.box{
+  transition-property: all;
+  transition-duration: inherit;
+  transition-timing-function: ease-in-out;
+  transition-delay: inherit;
+}
