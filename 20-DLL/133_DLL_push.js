@@ -7,9 +7,9 @@ class Node{
 }
 class DLL {
   constructor(){
+    this.length = 0;
     this.head = null;
     this.tail = null;
-    this.length = 0;
   }
 
   push(val){
@@ -20,19 +20,22 @@ class DLL {
     } else {
       this.tail.next = newNode;
       this.prev = this.tail;
-      this.tail = NewNode;
+      this.tail = newNode;
     }
     this.length++;
     return this;
   }
 }
 
-first = new Node(12);
-first.next = new Node(13);
-console.table(first);
+
 
 list = new DLL();
+console.table(list);
 
-this.push(99);
+list.push(99);
+list.push(45);
+list.push(72);
 
-console.log(list);
+
+console.table(list);
+console.log(list.prev);
