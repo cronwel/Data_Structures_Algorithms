@@ -11,7 +11,7 @@ class BST {
   constructor(){
     this.root = null;
   }
-  //167 Insertion####################################
+  //167 Insertion##########################
  insert(val){
    var newNode = new Node(val);
    if(this.root === null) {
@@ -37,7 +37,7 @@ class BST {
       }
   }
   
- //169 Find##########################################
+ //169 Find################################
   find(val){
     if(this.root === null) return false;
     var current = this.root, found = false;
@@ -54,7 +54,7 @@ class BST {
     return current;
   }
 
-//174-BFS############################################
+//174-BFS##################################
   contains(val){
     if(this.root === null) return false;
     var current = this.root,
@@ -94,10 +94,17 @@ class BST {
     traverse(this.root);
     return data;
   }
-
-
-
-
+  //177. Postorder#########################
+  postorder(){
+    var data = [];
+    function traverse(node){
+      if(node.left) traverse(node.left);
+      if(node.right) traverse(node.right);
+      data.push(node.val);
+    }
+    traverse(this.root);
+    return data;
+  }
 
 }
 
@@ -112,3 +119,4 @@ tree.insert(20);
 
 // console.table(tree);
 console.log(tree.preorder());
+console.log(tree.postorder());
