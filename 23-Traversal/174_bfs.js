@@ -53,6 +53,8 @@ class BST {
     if(!found) return undefined;
     return current;
   }
+
+//174-BFS############################################
   contains(val){
     if(this.root === null) return false;
     var current = this.root,
@@ -60,7 +62,7 @@ class BST {
     while(current && !found){
       if(val < current.val) {
         current = curent.left;
-      } else if(value > current.val){
+      } else if(val > current.val){
         current = current.right;
       } else {
         return true;
@@ -68,6 +70,34 @@ class BST {
     }
     return true;
   }
+  bfs(){
+    var node = this.root,
+        data = [],
+       queue = [];
+    queue.push(node);
+    while(queue.length){
+      node = queue.shift();
+      data.push(node.val);
+      if(node.left) queue.push(node.left);
+      if(node.right) queue.push(node.right);
+    }
+    return data;
+  }
+// 176. Preorder###########################
+  preorder(){
+    var data= [];
+    function traverse(node){
+      data.push(node.val);
+      if(node.left) traverse(node.left);
+      if(node.right) traverse(node.right);
+    }
+    traverse(this.root);
+    return data;
+  }
+
+
+
+
 
 }
 
@@ -80,9 +110,5 @@ tree.insert(3);
 tree.insert(8);
 tree.insert(20);
 
-tree.insert(8);
-tree.insert(12);
-tree.insert(16);
-
-console.table(tree);
-console.log(tree.find(22));
+// console.table(tree);
+console.log(tree.preorder());
