@@ -1,12 +1,13 @@
 
 //186###################################
-class MaxBH{
+class PQ{
   constructor(){
-    this.values = [41,39,33,18,27,12];
+    this.values = [];
   }
 
-  insert(element){
-    this.values.push(element);
+  insert(val, priority){
+    let newNode = new Node(val, priority)
+    this.values.push(newNode);
     this.bubble();
   }
 
@@ -21,7 +22,7 @@ class MaxBH{
     //   this.values[index]  = p;
     //   index = parent;
     // }
-    if(element <= p) break;
+    if(element.priority <= p.priority) break;
     this.values[parent] = element;
     this.values[index]  = p;
     index = parent;
@@ -48,13 +49,13 @@ class MaxBH{
       let swap = null;
       if(clx < length){
         lchild = this.values[clx];
-        if(lchild > element) swap = clx;
+        if(lchild.priority > element.priority) swap = clx;
       } 
       if(crx < length){
         rchild = this.values[crx];
         if(
-            (swap === null && rchild > element) ||
-            (swap !== null && rchild > lchild )
+            (swap === null && rchild.priority > element.priority) ||
+            (swap !== null && rchild.priority > lchild.priority )
         ){
           swap = crx;
         }
@@ -64,31 +65,29 @@ class MaxBH{
       this.values[swap] = element;
       index = swap;
     }
-  }
+  }  
+}
 
-  
+class Node{
+  constructor(val, priority){
+    this.val = val;
+    this.priority = priority;
+  }
 }
 
 
-let heap = new MaxBH();
+let er = new PQ();
 
-heap.insert(55);
+er.insert("stab wound", 2);
+er.insert("gunshot wound", 5);
+er.insert("cold", 1);
+er.insert("herpes", 3);
+er.insert("pregnancy", 4);
+console.log(er);
 
-
-console.log(heap);
-heap.remove();
-heap.remove();
-heap.remove();
-heap.remove();
-heap.remove();
-heap.remove();
-heap.remove();
-
-
-
-
-console.log(heap);
-
-
-
-console.log(heap.values);
+er.remove()
+console.log(er);
+er.remove()
+console.log(er);
+er.remove()
+console.log(er);
