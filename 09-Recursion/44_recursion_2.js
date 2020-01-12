@@ -11,5 +11,5 @@ function sumRange(num){
 
 // What would happen if we didn't return?
 
-console.log(sumRange(3));
+console.log(sumRange(4));
 

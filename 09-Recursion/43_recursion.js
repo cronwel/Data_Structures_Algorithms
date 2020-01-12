@@ -5,5 +5,8 @@ function countDown(num){
   }
   console.log(num);
   num--;
-  countdown(num);
+  // countdown(num);
 }
+
+var num = 4;
+countDown(4);
