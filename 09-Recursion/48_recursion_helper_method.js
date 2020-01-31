@@ -8,7 +8,6 @@ function outer(input){
   return outersScopedVariable
 }
 
-
 function collectOdds(arr){
   let result = [];
   function helper(helperInput){
